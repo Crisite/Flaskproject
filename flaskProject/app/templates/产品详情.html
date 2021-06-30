@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>产品详情</title>
+    <link rel="stylesheet" href="css/shopCSS.css">
+    <script type="text/javascript" src="js/jquery-1.11.0.js"></script>
+    <script type="text/javascript"src="js/shopJS.js"></script>
+
+
+</head>
+<body>
+    <div id="container">
+        <!--网站头部-->
+        <header id="pagetop">
+            <div class="indexLogo">
+                <img src="img/logo.gif"/>
+            </div>
+        </header>
+        <header id="msg">
+            <span style="font-size: x-small">您好，欢迎来到京东商城！想继续购物？<a href="#">[请登录]</a>，新用户？<a href="#">[免费注册]</a></span>
+        </header>
+
+        <header class="topNav" style="position: relative">
+            <!--<a href="#">帮助中心</a>|<a href="#">客户反馈</a>|<a href="#">网站地图</a>|<a href="#">加入收藏</a>-->
+            <div class="topNavList">
+                <ul>
+                    <li><a href="#">帮助中心</a>|</li>
+                    <li><a href="#">客户反馈</a>|</li>
+                    <li><a href="#">网站地图</a>|</li>
+                    <li><a href="#">加入收藏</a></li>
+                    <li><span  id="getTime"></span></li>
+                </ul>
+            </div>
+
+        </header>
+        <marquee direction="up" scrollamount="3" onmouseover="this.stop()" onmouseout="this.start()"><a href="#">最新公告：明天有秒杀活动哦！</a> </marquee>
+        <!--导航栏-->
+        <aside id="navBar">
+            <nav id="navBar_top">
+                <ul>
+                    <li><a href="#" class="setFont" id="a1" onmouseover="changeC('a1', 'over')" onmouseout="changeC('a1', 'out')"> 网站首页</a>|</li>
+                    <li><a href="#" class="setFont" id="a2" onmouseover="changeC('a2', 'over')" onmouseout="changeC('a2', 'out')"> 分类导航</a>|</li>
+                    <li><a href="#" class="setFont" id="a3" onmouseover="changeC('a3', 'over')" onmouseout="changeC('a3', 'out')"> 品牌导航</a>|</li>
+                    <li><a href="#" class="setFont" id="a4" onmouseover="changeC('a4', 'over')" onmouseout="changeC('a4', 'out')"> 购物帮助</a>|</li>
+                    <li><a href="#" class="setFont" id="a5" onmouseover="changeC('a5', 'over')" onmouseout="changeC('a5', 'out')"> 新闻资讯</a>|</li>
+                    <li><a href="#" class="setFont" id="a6" onmouseover="changeC('a6', 'over')" onmouseout="changeC('a6', 'out')"> 报价单</a>|</li>
+                    <li><a href="#" class="setFont" id="a7" onmouseover="changeC('a7', 'over')" onmouseout="changeC('a7', 'out')"> 发货单</a></li>
+                </ul>
+
+            </nav>
+            <nav id="navBar_bottom">
+                <nav id="find">
+                    <span class="setfont">商品搜索:</span>
+                    <span>
+                        <select>
+                        <option>所有分类</option>
+                        <option>家用电器</option>
+                        <option>手机数码</option>
+                        <option>电脑产品</option>
+                        <option>日用百货</option>
+                        <option>鞋装鞋帽</option>
+                        <option>运动健康</option>
+                        </select>
+                    </span>
+                </nav>
+                <div id="find2">
+                    <input type="text" placeholder="请输入商品名称" maxlength="50" size="40px">
+                    <input type="button" value="搜索">
+                    <span class="setfont">高级/组合搜索</span>
+                </div>
+                <nav id="find3">
+                    <span style="font-size: 12px; line-height: 24px">
+                        <a href="#" style="padding-left: 30px">购物车</a>
+                        <a href="#" style="padding-left: 108px">去结算</a>
+                        <a href="#" style="padding-left: 26px">用户中心</a>
+                    </span>
+
+
+                </nav>
+            </nav>
+        </aside>
+        <!--网站中部-->
+        <div id="pageBody">
+            <!--左部-->
+            <div id="bLefe">
+                <div id="bLeftTop">
+                    <div class="bLeftTop_1">用户信息</div>
+                    <div id="bLeftTop_2">
+                        <ul>
+                            <li><img src="img/user/1.gif">&nbsp;<a href="#">注册/登录</a> </li>
+                            <li><img src="img/user/8.gif">&nbsp;<a href="#">购物车</a></li>
+                            <li><img src="img/user/10.gif">&nbsp;<a href="#">对比框</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="bLeftBottom">
+                    <div class="bLeftTop_1">最近浏览产品</div>
+
+                    <div style="float: left;margin-bottom: 5px;">
+                        <div >
+
+                            <div style="border: 1px solid red;">
+
+                                <div>
+                                    <div style="float: left;width: 80px;"><a href="#"><img src="img/imgs/5.png" height="80px" width="80px"></a></div>
+                                    <div style="float: left;width: 110px;"><p style="font-size: 10px;color: red;font-weight: bolder;text-align: center">
+                                        <a href="#" style="color: #AA0000;font-weight: normal">霍尼韦尔霍尼韦尔霍尼韦尔霍尼韦尔霍尼韦尔霍尼韦尔霍尼韦尔霍尼韦尔霍尼韦尔霍尼韦尔霍尼韦尔霍尼韦尔霍尼韦尔</a><br>¥1298.00元</p></div>
+                                </div>
+                                <div style="clear:both;"></div>
+                            </div>
+                        </div>
+
+
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+        </div>
+            <!--中部-->
+            <div id="bMiddle" style="width: 780px">
+                <header id="position">
+                    <img src="img/img/home.gif"><span>您的位置:</span><span><a href="麦子商城.html">首页 >></a></span><span><a href="麦子商城.html">家用电器 >></a></span><span><a href="麦子商城.html">生活电器 >></a></span><a href="#"><span style="color: black">霍尼韦尔（Honeywell）空气净化器</span></a>
+                </header>
+
+                <div  style="border: 1px darkgrey solid;margin-top: 15px;overflow: auto">
+                    <!--商品图片-->
+                    <div style="float:left;border-right:1px darkgrey dashed ">
+                        <img src="img/imgs/4.1.jpg" width="300px" height="300px" id="bigImg" onmouseover="showBigImg()" onmouseout="hiddenBigImg()" onmousemove="Mmove()">
+                        <div style="clear:both">
+                        <div class="smallPic"><img src="img/imgs/4.1.jpg" onmouseover="changebigImg()"></div>
+                        <div class="smallPic"><img src="img/imgs/1.1.jpg" onmouseover="changebigImg()"></div>
+                        <div class="smallPic"><img src="img/imgs/2.1.jpg" onmouseover="changebigImg()"></div>
+
+                        </div>
+                    </div>
+                    <!--商品信息-->
+                    <div>
+                        <header style="text-align: center">
+                            <span style="color: #00267F;font-weight: bolder;font-size: 15px">霍尼韦尔（Honeywell）5010-CHN空气净化器</span>
+                            &nbsp;<span style="font-size: 10px">（<a href="#" style="text-decoration: underline">0篇用户评论</a>|<a href="#" style="text-decoration: underline">写评论</a>）</span>
+                        </header>
+                        <div style="border-bottom: 1px darkgrey dashed;border-top: 1px darkgrey dashed">
+                            <span style="font-size: 15px;line-height: 30px">商品编号：10042710521400</span><br>
+                            <span style="font-size: 15px;line-height: 30px">商品积分：<span style="color: red">1298</span><a href="#">（积分可兑换优惠券）</a></span>
+                        </div>
+                        <div>
+                            <span style="display: block;font-size:15px;line-height: 30px;color: gray;font-size: 15px;text-decoration: line-through">市场价：￥1998.00元</span>
+                            <span style="display: block;font-size:15px;line-height: 30px">本站价格：<span style="color: red">￥1298.00元</span></span>
+                            <span style="display: block;font-size:15px;line-height: 30px">为您节省：<span style="color: red">￥700.00元</span></span>
+                            <span style="display: block;font-size:15px;line-height: 30px">订购数量：
+                                <input type="text" name="buyNum"size="5px" id="buyNum" value="1" oninput="checkBuyNum()"><span id="tips"></span>
+                            </span>
+                        </div>
+                        <div style="margin-top: 5px">
+                            <input type="button" value="加入购物车" id="btn1" style="background-image: url('img/img/sortbg1.jpg')">
+                            <input type="button" value="加入对比" id="btn2" style="background-image: url('img/img/sortbg1.jpg')">
+                            <input type="button" value="加入收藏夹" id="btn3" style="background-image: url('img/img/sortbg1.jpg')">
+                        </div>
+                    </div>
+
+
+                </div>
+                <div style="position: relative">
+                    <span style="display: block;float: left;font-size: 15px;margin-top: 10px;">下一个商品：</span><span style="display: block;float: left;font-size: 15px;margin-top: 10px;"><a>美的电脑版电压力锅PCS507一锅双胆</a></span>
+                    <div style="float: right;margin-top: 10px">
+                        <img src="img/pay/alipay_buy.gif">&nbsp;<img src="img/pay/paypal_buy.gif">
+                    </div>
+                    <div id="showBigImg" style="overflow: hidden;display: none"><img src="img/imgs/4.1.jpg" id="bigImgShow" width="500px" height="500px"></div>
+                </div>
+                <hr style="clear: both;position: relative;top:15px">
+
+                <!--商品信息-->
+                <div style="clear:both">
+                    <!--选项-->
+                    <div id="card1" onclick="changeInfo('card1')">详细说明</div>
+                    <div id="card2" onclick="changeInfo('card2')">相关商品</div>
+                    <div id="card3" onclick="changeInfo('card3')">商品评论</div>
+                    <div id="card4" onclick="changeInfo('card4')">付款方式</div>
+                    <div id="card5" onclick="changeInfo('card5')">送货方式</div>
+                    <div style="border-bottom: 1px solid darkgrey;width:268px;height: 21px;float: left;margin-top: 30px;" ></div>
+                </div>
+                <div id="selectCardInfo">
+                    <div id="info1">1111111111111111111111111111111111111111111111111111</div>
+                    <div id="info2" style="display: none">222222222222222222222222222222222222222222222222222222222222222222222222</div>
+                    <div id="info3" style="display: none">333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333</div>
+                    <div id="info4" style="display: none">4444444444444444444444444444444444444444444444444444444444444444444444444444</div>
+                    <div id="info5" style="display: none">5555555555555555555555555555555555555555555555555555555555555555555555555555</div>
+
+                </div>
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+        <!--网站底部-->
+        <div id="foot">
+            <div class="footInfo">
+                <span>关于我们</span>
+                <ul>
+                    <li><a href="#">发展历程</a></li>
+                    <li><a href="#">联系方式</a></li>
+                    <li><a href="#">公司介绍</a></li>
+                    <li><a href="#">企业文化</a></li>
+                </ul>
+            </div>
+            <div class="footInfo">
+                <span>付款方式</span>
+                <ul>
+                    <li><a href="#">银行汇款</a></li>
+                    <li><a href="#">在线支付</a></li>
+                    <li><a href="#">银行汇款</a></li>
+                    <li><a href="#">公司转账</a></li>
+                </ul>
+            </div>
+            <div class="footInfo">
+                <span>送货方式</span>
+                <ul>
+                    <li><a href="#">上门自提</a></li>
+                    <li><a href="#"> EMS快递</a></li>
+                    <li><a href="#">快递发货</a></li>
+                    <li><a href="#">平邮发货</a></li>
+                </ul>
+            </div>
+            <div class="footInfo">
+                <span>售后服务</span>
+                <ul>
+                    <li><a href="#">质量保障</a></li>
+                    <li><a href="#">退换货政策</a></li>
+                    <li><a href="#">价格保护</a></li>
+                    <li><a href="#">返修申请</a></li>
+                </ul>
+            </div>
+            <div class="footInfo">
+                <span>购物帮助</span>
+                <ul>
+                    <li><a href="#">用户级别</a></li>
+                    <li><a href="#">积分获得与使用</a></li>
+                    <li><a href="#">购物流程</a></li>
+                    <li><a href="#">常见问题</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <!--<div id="bottomShopInfo"><span><a href="#">淘宝店</a></span> <span><a href="#">易趣店</a></span> <span><a href="#">拍拍店</a></span> <span><a href="#">有啊店</a></span><br>-->
+        <footer id="bottomShopInfo">
+            <a href="#">淘宝店</a></span> <span><a href="#">易趣店</a></span> <span><a href="#">拍拍店</a></span> <span><a href="#">有啊店</a></span>
+            <br>
+            <span style="color: black;font-size: 10px;">Copyright 2015 127.0.0.1. All Rights Reserved.版权所有：广州网软志成信息科技有限公司</span>
+        </footer>
+
+        <!--</div>-->
+
+    </div>
+
+
+</body>
+</html>

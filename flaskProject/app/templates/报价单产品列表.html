@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>报价单产品列表</title>
+    <link rel="stylesheet" href="css/shopCSS.css">
+    <script>
+        window.onload = function(){
+            var myDate = new Date();//获取系统当前时间
+            var mon = myDate.getMonth() + 1;
+            var day = myDate.getDay();
+            switch (day) {
+                case 0:d = "星期天";break;
+                case 1:d = "星期一";break;
+                case 2:d = "星期二";break;
+                case 3:d = "星期三";break;
+                case 4:d = "星期四";break;
+                case 5:d = "星期五";break;
+                case 6:d = "星期六";break;
+
+            }
+            /*
+             1 myDate.getYear(); //获取当前年份(2位)
+             2 myDate.getFullYear(); //获取完整的年份(4位,1970-????)
+             3 myDate.getMonth(); //获取当前月份(0-11,0代表1月)
+             4 myDate.getDate(); //获取当前日(1-31)
+             5 myDate.getDay(); //获取当前星期X(0-6,0代表星期天)*/
+            //alert(myDate.getFullYear()+"/"+mon+"/"+myDate.getDate()+" "+d);
+            document.getElementById("getTime").innerHTML = myDate.getFullYear()+"/"+mon+"/"+myDate.getDate()+" "+d;
+
+        }
+        //onmouseover="changeC()" onmouseout="moveC()"
+        function changeC(id, flag){
+            if(flag == "over") {
+                document.getElementById(id).style.color = "yellow";
+                document.getElementById(id).style.textDecoration = "underline ";
+
+            }else if(flag == "out"){
+                document.getElementById(id).style.color = "";
+                document.getElementById(id).style.textDecoration = "none";
+            }
+
+        }
+        function showType(){//bLeftBottom_3   hidden_info
+            document.getElementById("hidden_info").style.display="block";
+        }
+        function hideType(){//bLeftBottom_3   hidden_info
+            document.getElementById("hidden_info").style.display="none";
+        }
+    </script>
+    <script type="text/javascript" src="js/jquery-1.11.0.js"></script>
+    <script>
+        $(function(){
+            //设置定时任务
+            for(var i=1;i<12;i++){
+                $("#num").append("<li>"+i+"</li>");
+            }
+            $("#num li").eq(0).css("background-color","yellow").siblings("li").css("background-color","darkgray");
+
+            setInterval("changeImg()", 3000);
+            //点击下方数字更换图片
+            $("#num li").click(function(){
+                $("#img1").attr("src", "img/Wrzcnet/"+$(this).text()+".jpg").css("width","100%").css("height","100%");
+                $("#num li").eq($(this).text()-1).css("background-color","yellow").siblings("li").css("background-color","darkgray");
+
+                // alert($(this).text());
+
+            });
+            //表格隔行换色
+            $("thead tr").css("background-color", "lightgray");
+            $("tbody tr:odd").addClass("odd");
+            //鼠标经过变色
+            $("tbody tr").mouseover(function(){
+                $(this).css("background-color"," khaki");
+            });
+            $("tbody tr").mouseout(function(){
+                $(this).css("background-color","");
+            });
+
+
+        });
+        var i=1;
+        function changeImg(){
+
+            i++;
+            //("img/Wrzcnet/"+i+".jpg");
+            $("#img1").attr("src", "img/Wrzcnet/"+i+".jpg").css("width","100%").css("height","100%");
+            if(i==11){
+                i=0;
+            }
+            $("#num li").eq(i-1).css("background-color","yellow").siblings("li").css("background-color","darkgray");
+
+
+        }
+    </script>
+    <script>
+
+       function c1() {
+               document.getElementById("i1").src="img/img/vm11.gif";
+               document.getElementById("i2").src="img/img/vm2.gif";
+       }
+       function c2() {
+               document.getElementById("i2").src="img/img/vm21.gif";
+               document.getElementById("i1").src="img/img/vm1.gif";
+       }
+       function checkBuyNum(){
+           var bnum = document.getElementById("buyNum");
+            // alert(bnum.value);
+           if(bnum.value == 0){
+
+              document.getElementById("tips").innerHTML = "不能再少了！";
+              document.getElementById("btn1").disabled=true;
+           }
+           else if(bnum.value > 20){
+
+               document.getElementById("tips").innerHTML = "太多啦！";
+               document.getElementById("btn1").disabled=true;
+           }
+           else{
+               document.getElementById("tips").innerHTML = "";
+               document.getElementById("btn1").disabled=false;
+           }
+       }
+       function changeInfo(id) {
+           switch (id) {
+               case "card1":
+                          for(var i=1;i<6;i++){
+                              if(i!=1){
+                                  document.getElementById("card"+i).style.borderColor="darkgray";
+                                  document.getElementById("info"+i).style.display="none";
+                              }
+                              else{
+                                  document.getElementById("info"+i).style.display="block";
+                                  document.getElementById("card"+i).style.borderColor="darkgray darkgray white darkgray";
+                              }
+                          }
+                           break;
+               case "card2":
+
+                   for(var i=1;i<6;i++){
+                       if(i!=2){
+                           document.getElementById("card"+i).style.borderColor="darkgray";
+                           document.getElementById("info"+i).style.display="none";
+                       }
+                       else{
+                           document.getElementById("info"+i).style.display="block";
+                           document.getElementById("card"+i).style.borderColor="darkgray darkgray white darkgray";
+                       }
+                   }
+
+                           break;
+               case "card3":
+
+                   for(var i=1;i<6;i++){
+                       if(i!=3){
+                           document.getElementById("card"+i).style.borderColor="darkgray";
+                           document.getElementById("info"+i).style.display="none";
+                       }
+                       else{
+                           document.getElementById("info"+i).style.display="block";
+                           document.getElementById("card"+i).style.borderColor="darkgray darkgray white darkgray";
+                       }
+                   }
+                           break;
+               case "card4":
+                   for(var i=1;i<6;i++){
+                       if(i!=4){
+                           document.getElementById("card"+i).style.borderColor="darkgray";
+                           document.getElementById("info"+i).style.display="none";
+                       }
+                       else{
+                           document.getElementById("info"+i).style.display="block";
+                           document.getElementById("card"+i).style.borderColor="darkgray darkgray white darkgray";
+                       }
+                   }
+                           break;
+               case "card5":
+
+                   for(var i=1;i<6;i++){
+                       if(i!=5){
+                           document.getElementById("card"+i).style.borderColor="darkgray";
+                           document.getElementById("info"+i).style.display="none";
+                       }
+                       else{
+                           document.getElementById("info"+i).style.display="block";
+                           document.getElementById("card"+i).style.borderColor="darkgray darkgray white darkgray";
+                       }
+                   }
+                           break;
+                   }
+
+       }
+       function changebigImg() {
+           var imgEle = document.getElementById("bigImg");
+           imgEle.src = event.srcElement.src;
+
+       }
+       function showBigImg() {
+            document.getElementById("showBigImg").style.display="block";
+            bigImgEle = document.getElementById("bigImgShow");
+            bigImgEle.src = event.srcElement.src;
+
+           // alert("yy");
+       }
+       function hiddenBigImg() {
+           document.getElementById("showBigImg").style.display="none";
+       }
+       function Mmove(){
+           //放大镜中的图片
+           var obj = document.getElementById("bigImgShow");
+           //获取鼠标相对位移
+           var offx = obj.width/event.srcElement.width;
+           var offy = obj.height/event.srcElement.height;
+           //获取放大镜外div容器
+           var div = document.getElementById("showBigImg");
+           div.scrollLeft = (event.offsetX*offx);
+           div.scrollTop = (event.offsetY*offy);
+
+
+       }
+
+
+    </script>
+
+</head>
+<body>
+    <div id="container">
+        <!--网站头部-->
+        <header id="pagetop">
+            <div class="indexLogo">
+                <img src="img/logo.gif"/>
+            </div>
+        </header>
+        <header id="msg">
+            <span style="font-size: x-small">您好，欢迎来到京东商城！想继续购物？<a href="#">[请登录]</a>，新用户？<a href="#">[免费注册]</a></span>
+        </header>
+
+        <header class="topNav" style="position: relative">
+            <!--<a href="#">帮助中心</a>|<a href="#">客户反馈</a>|<a href="#">网站地图</a>|<a href="#">加入收藏</a>-->
+            <div class="topNavList">
+                <ul>
+                    <li><a href="#">帮助中心</a>|</li>
+                    <li><a href="#">客户反馈</a>|</li>
+                    <li><a href="#">网站地图</a>|</li>
+                    <li><a href="#">加入收藏</a></li>
+                    <li><span  id="getTime"></span></li>
+                </ul>
+            </div>
+
+        </header>
+        <marquee direction="up" scrollamount="3" onmouseover="this.stop()" onmouseout="this.start()"><a href="#">最新公告：明天有秒杀活动哦！</a> </marquee>
+        <!--导航栏-->
+        <aside id="navBar">
+            <nav id="navBar_top">
+                <ul>
+                    <li><a href="#" class="setFont" id="a1" onmouseover="changeC('a1', 'over')" onmouseout="changeC('a1', 'out')"> 网站首页</a>|</li>
+                    <li><a href="#" class="setFont" id="a2" onmouseover="changeC('a2', 'over')" onmouseout="changeC('a2', 'out')"> 分类导航</a>|</li>
+                    <li><a href="#" class="setFont" id="a3" onmouseover="changeC('a3', 'over')" onmouseout="changeC('a3', 'out')"> 品牌导航</a>|</li>
+                    <li><a href="#" class="setFont" id="a4" onmouseover="changeC('a4', 'over')" onmouseout="changeC('a4', 'out')"> 购物帮助</a>|</li>
+                    <li><a href="#" class="setFont" id="a5" onmouseover="changeC('a5', 'over')" onmouseout="changeC('a5', 'out')"> 新闻资讯</a>|</li>
+                    <li><a href="#" class="setFont" id="a6" onmouseover="changeC('a6', 'over')" onmouseout="changeC('a6', 'out')"> 报价单</a>|</li>
+                    <li><a href="#" class="setFont" id="a7" onmouseover="changeC('a7', 'over')" onmouseout="changeC('a7', 'out')"> 发货单</a></li>
+                </ul>
+
+            </nav>
+            <nav id="navBar_bottom">
+                <nav id="find">
+                    <span class="setfont">商品搜索:</span>
+                    <span>
+                        <select>
+                        <option>所有分类</option>
+                        <option>家用电器</option>
+                        <option>手机数码</option>
+                        <option>电脑产品</option>
+                        <option>日用百货</option>
+                        <option>鞋装鞋帽</option>
+                        <option>运动健康</option>
+                        </select>
+                    </span>
+                </nav>
+                <div id="find2">
+                    <input type="text" placeholder="请输入商品名称" maxlength="50" size="40px">
+                    <input type="button" value="搜索">
+                    <span class="setfont">高级/组合搜索</span>
+                </div>
+                <nav id="find3">
+                    <span style="font-size: 12px; line-height: 24px">
+                        <a href="#" style="padding-left: 30px">购物车</a>
+                        <a href="#" style="padding-left: 108px">去结算</a>
+                        <a href="#" style="padding-left: 26px">用户中心</a>
+                    </span>
+
+
+                </nav>
+            </nav>
+        </aside>
+        <!--网站中部-->
+        <div>
+            <div style="float: right"><span style="font-size: 15px;">打印报价单</span></div>
+            <header style="clear: both;font-size: 15px;font-weight: bolder">服装鞋帽</header>
+            <table>
+                <thead  style="font-weight: bolder;font-size: 15px">
+                <tr>
+                    <th>图片</th>
+                    <th>商品</th>
+                    <th>零售价</th>
+                    <th>本站价</th>
+                    <th>库存</th>
+                    <th>购买</th>
+                </tr>
+
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="td1"><a href="#"><img src="img/imgs/f1.jpg" width="50px" height="50px"></a></td>
+                        <td class="td2"><a href="#">高品质实拍热卖可搭配卫衣秋装冬休闲英伦长款</a></td>
+                        <td class="td3">￥966.00元</td>
+                        <td class="td4">￥829.00元</td>
+                        <td class="td5">900</td>
+                        <td class="td6"><a href="#">定购</a></td>
+                    </tr>
+                    <tr>
+                        <td class="td1"><img src="img/imgs/f2.jpg" width="50px" height="50px"></td>
+                        <td class="td2"><a href="#">秋装冬休闲英伦长款大衣女装风衣</a></td>
+                        <td class="td3">￥966.00元</td>
+                        <td class="td4">￥829.00元</td>
+                        <td class="td5">1000</td>
+                        <td class="td6"><a href="#">定购</a></td>
+                    </tr>
+                    <tr>
+                        <td class="td1"><img src="img/imgs/f3.jpg" width="50px" height="50px"></td>
+                        <td class="td2"><a href="#">新品0.75g韩版高档毛领开扣大衣</a></td>
+                        <td class="td3">￥966.00元</td>
+                        <td class="td4">￥829.00元</td>
+                        <td class="td5">1000</td>
+                        <td class="td6"><a href="#">定购</a></td>
+                    </tr>
+                    <tr>
+                        <td class="td1"><img src="img/imgs/f1.jpg" width="50px" height="50px"></td>
+                        <td class="td2"><a href="#">Max Mara超大纽扣重温经典后身束腰风衣红色</a></td>
+                        <td class="td3">￥966.00元</td>
+                        <td class="td4">￥829.00元</td>
+                        <td class="td5">1000</td>
+                        <td class="td6"><a href="#">定购</a></td>
+                    </tr>
+                    <tr>
+                        <td class="td1"><img src="img/imgs/f2.jpg" width="50px" height="50px"></td>
+                        <td class="td2"><a href="#">09冬新款韩版假两件套长款风衣801黑 配腰带</a></td>
+                        <td class="td3">￥566.00元</td>
+                        <td class="td4">￥429.00元</td>
+                        <td class="td5">1000</td>
+                        <td class="td6"><a href="#">定购</a></td>
+                    </tr>
+                    <tr>
+                        <td class="td1"><img src="img/imgs/f3.jpg" width="50px" height="50px"></td>
+                        <td class="td2"><a href="#">男士运动鞋 猫爪野外跑鞋</a></td>
+                        <td class="td3">￥588.00元</td>
+                        <td class="td4">￥528.00元</td>
+                        <td class="td5">1000</td>
+                        <td class="td6"><a href="#">定购</a></td>
+                    </tr>
+                    <tr>
+                        <td class="td1"><img src="img/imgs/f2.jpg" width="50px" height="50px"></td>
+                        <td class="td2"><a href="#">H-M装柜正品.收腰羊绒呢料-风衣-M209K101</a></td>
+                        <td class="td3">￥299.00元</td>
+                        <td class="td4">￥219.00元</td>
+                        <td class="td5">1000</td>
+                        <td class="td6"><a href="#">定购</a></td>
+                    </tr>
+                    <tr>
+                        <td class="td1"><img src="img/imgs/f3.jpg" width="50px" height="50px"></td>
+                        <td class="td2"><a href="#">H&M 09 新款 原单精品酷睿双排扣羊毛大衣</a></td>
+                        <td class="td3">￥299.00元</td>
+                        <td class="td4">￥219.00元</td>
+                        <td class="td5">1000</td>
+                        <td class="td6"><a href="#">定购</a></td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <div style="margin: 10px;font-size: 15px"><span>第1页/共1页</span>&nbsp;
+                <a href="#"><span style="font-size: 15px;color: black">上一页</span></a>
+                <a href="#"><span style="font-size: 15px;color: black">下一页</span></a>
+                <span style="font-size: 15px">页面跳转：</span>
+                <input type="text" size="5px">
+                <input type="button" size="5px" value="GO">
+            <div>选择页数：1</div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+        <!--网站底部-->
+        <div id="foot">
+            <div class="footInfo">
+                <span>关于我们</span>
+                <ul>
+                    <li><a href="#">发展历程</a></li>
+                    <li><a href="#">联系方式</a></li>
+                    <li><a href="#">公司介绍</a></li>
+                    <li><a href="#">企业文化</a></li>
+                </ul>
+            </div>
+            <div class="footInfo">
+                <span>付款方式</span>
+                <ul>
+                    <li><a href="#">银行汇款</a></li>
+                    <li><a href="#">在线支付</a></li>
+                    <li><a href="#">银行汇款</a></li>
+                    <li><a href="#">公司转账</a></li>
+                </ul>
+            </div>
+            <div class="footInfo">
+                <span>送货方式</span>
+                <ul>
+                    <li><a href="#">上门自提</a></li>
+                    <li><a href="#"> EMS快递</a></li>
+                    <li><a href="#">快递发货</a></li>
+                    <li><a href="#">平邮发货</a></li>
+                </ul>
+            </div>
+            <div class="footInfo">
+                <span>售后服务</span>
+                <ul>
+                    <li><a href="#">质量保障</a></li>
+                    <li><a href="#">退换货政策</a></li>
+                    <li><a href="#">价格保护</a></li>
+                    <li><a href="#">返修申请</a></li>
+                </ul>
+            </div>
+            <div class="footInfo">
+                <span>购物帮助</span>
+                <ul>
+                    <li><a href="#">用户级别</a></li>
+                    <li><a href="#">积分获得与使用</a></li>
+                    <li><a href="#">购物流程</a></li>
+                    <li><a href="#">常见问题</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <!--<div id="bottomShopInfo"><span><a href="#">淘宝店</a></span> <span><a href="#">易趣店</a></span> <span><a href="#">拍拍店</a></span> <span><a href="#">有啊店</a></span><br>-->
+        <footer id="bottomShopInfo">
+            <a href="#">淘宝店</a></span> <span><a href="#">易趣店</a></span> <span><a href="#">拍拍店</a></span> <span><a href="#">有啊店</a></span>
+            <br>
+            <span style="color: black;font-size: 10px;">Copyright 2015 127.0.0.1. All Rights Reserved.版权所有：广州网软志成信息科技有限公司</span>
+        </footer>
+
+        <!--</div>-->
+
+    </div>
+
+
+</body>
+</html>
