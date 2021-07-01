@@ -1,6 +1,6 @@
 import os
 from flask import Flask
-from app.settings import DevelopmentConfig
+from flaskProject.app.settings import DevelopmentConfig
 
 
 def create_app(test_config=None):
@@ -30,10 +30,15 @@ def create_app(test_config=None):
 
     # 蓝图
     from .web import view
-    app.register_blueprint(view.sign)
+    app.register_blueprint(view.sign_bp)
 
     from . import models
     models.db.init_app(app)
+
+    # 测试
+    @app.route('/')
+    def hello():
+        return 'Hello, World!'
 
     return app
 
