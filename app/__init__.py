@@ -1,45 +1,33 @@
 import os
 from flask import Flask
 # from flaskProject.app.settings import DevelopmentConfig
+from flask_sqlalchemy import SQLAlchemy
+
+from app.models import Product, ProductType
 from app.settings import DevelopmentConfig
+
+# from run import app
+
+
+# db = SQLAlchemy()
 
 
 def create_app(test_config=None):
-    # create and configure the app
-    app = Flask(__name__, instance_relative_config=True)
-
-    app.config.from_mapping(
-        SECRET_KEY='dev',
-        DATABASE=os.path.join(app.instance_path, 'flaskr.sqlite'),
-    )
-
-    if test_config is None:
-        # load the instance config, if it exists, when not testing
-        app.config.from_pyfile('config.py', silent=True)
-    else:
-        # load the test config if passed in
-        app.config.from_mapping(test_config)
-
-    # ensure the instance folder exists
-    try:
-        os.makedirs(app.instance_path)
-    except OSError:
-        pass
-
-    # 加载配置
-    app.config.from_object(DevelopmentConfig)
+    app = Flask(__name__, template_folder='./templates', static_folder='./static')  # app是一个核心对象
+    app.config.from_object(DevelopmentConfig)  # 加载配置
 
     # 蓝图
-    from .web import view
-    app.register_blueprint(view.sign_bp)
-
+    from .web import view2
+    from .user import view
+    from .admin import view3
+    app.register_blueprint(view.user_bp)
+    app.register_blueprint(view2.product_bp)
+    app.register_blueprint(view3.home_bp)
+    # 数据库初始化
     from . import models
     models.db.init_app(app)
 
     # 测试
-    @app.route('/')
-    def hello():
-        return 'Hello, World!'
 
     return app
 

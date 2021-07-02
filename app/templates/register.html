@@ -25,18 +25,17 @@
 <!-----start-main---->
 	 <div class="main">
 		<div class="login-form">
-			<h1>Member Login</h1>
+			<h1>用户注册</h1>
 					<div class="head">
 						<img src="../static/images/user.png" alt=""/>
 					</div>
-				<form>
+				<form action="{{ url_for('user.register') }}" method="post">
                     <input type="text" class="text" value="账号" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '账号';}" >
                     <input type="text" value="密码" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '密码';}">
                     <input type="text" value="确认密码" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '确认密码';}">
                     <input type="text" value="11位手机号" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '11位手机号';}">
-						<div class="submit">
-							<input type="submit" onclick="myFunction()" value="注册" >
-					</div>
+					<input type="text" value="地址" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '地址';}">
+                        <button style="color: #2e6da4" type="submit" class="btn btn-default">注册</button>
 <!--					<p><a href="#">Forgot Password ?</a></p>-->
 				</form>
 			</div>

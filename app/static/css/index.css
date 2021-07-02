@@ -1,0 +1,53 @@
+body{font-family:'Microsoft Yahei';font-size:12px;color:#666;}
+html,body{height:100%}
+.header_con{
+	background-color:#f7f7f7;
+	height:29px;
+	border-bottom:1px solid #dddddd
+}
+
+.header{
+	width:1200px;
+	height:29px;
+	margin:0 auto;
+}
+
+.welcome,.login_info,.login_btn,.user_link{
+	line-height:29px;
+}
+
+.login_btn a,.user_link a{
+	color:#666;
+}
+
+.login_btn a:hover,.user_link a:hover{
+	color:#ff8800;
+}
+
+.login_btn span,.user_link span{
+	color:#cecece;
+	margin:0 10px;
+}
+/* 商品列表样式 */
+
+.list_model{width:1200px;height:340px;margin:15px auto 0;}
+.goods_more{height:20px;margin-top:15px;color:#666}
+
+.goods_con{height:300px;}
+.goods_banner{width:200px;height:300px;}
+.goods_banner img{width:200px;height:300px;}
+
+.goods_list{width:1000px;height:299px;border-bottom:1px solid #ededed}
+.goods_list li{height:299px;width:235px;border-right:1px solid #ededed;float:left}
+.goods_list li:hover{width:248px;height:297px;border:1px solid gold;}
+.goods_list li:hover img{opacity:0.8}
+
+.goods_list li h4{width:200px;height:50px;margin:20px auto 0;text-align:center;}
+.goods_list li h4 a{font-size:14px;color:#666;font-weight:normal;line-height:24px;}
+.goods_list li h4 a:hover{color:#ff8800}
+
+.goods_list li img{display:block;width:180px;height:180px;margin:0 auto;}
+.goods_list li .prize{text-align:center;font-size:20px;color:#c40000;margin-top:5px;}
+
+
+.add_cart{display:inline-block;width:178px;height:38px;border:1px solid #c40000;font-size:14px;color:#c40000;line-height:38px;text-align:center;background-color:#ffeded;}

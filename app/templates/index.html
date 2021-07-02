@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>天天商城首页</title>
+     <link rel="stylesheet" type="text/css"  href="../static/css/index.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+<link type="text/css" rel="stylesheet" href="../static/bootstrap-3.3.7-dist/css/bootstrap.css">
+<link type="text/css" rel="stylesheet" href="../static/bootstrap-3.3.7-dist/css/bootstrap-theme.css">
+<script type="text/javascript" src="../static/bootstrap-3.3.7-dist/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="../static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../static/bootstrap-3.3.7-dist/js/confirm.js"></script>
+
+<script>
+
+</script>
+    <style>
+
+		#container {
+			width:500px;
+			height:55px;
+			margin:0 auto;
+		}
+		div.search {
+			padding:10px 0;
+		}
+		form {
+			position:relative;
+			width:400px;
+			margin:0 auto;
+		}
+		input,button {
+			border:none;
+			outline:none;
+		}
+		input {
+			width:100%;
+			height:42px;
+			padding-left:13px;
+		}
+		button {
+			height:42px;
+			width:42px;
+			cursor:pointer;
+			position:absolute;
+		}
+		/*搜索框6*/
+
+		.bar6 input {
+			border:2px solid #c40000;
+			border-radius:5px;
+			background:transparent;
+			top:0;
+			right:0;
+		}
+		.bar6 button {
+			background:#c40000;
+			border-radius:0 5px 5px 0;
+			width:60px;
+			top:0;
+			right:0;
+		}
+		.bar6 button:before {
+			content:"搜索";
+			font-size:13px;
+			color:#F9F0DA;
+		}
+
+        .title ul{
+			list-style-type: none;
+			padding: 0px;
+			float: left;
+			position: relative;
+		}
+		.title ul li {
+			width: 110px;
+			height: 56px;
+			text-align: center;
+			float: left;
+		}
+		.title ul li a {
+			color: #848789;
+			text-decoration: none;
+			line-height: 56px;
+		}
+		.title ul a:hover{
+			color: #0ab2d2;
+		}
+		.title .move{
+			height: 4px;
+			width: 110px;
+			border-top: 4px solid #0ab2d2;/*只需要将上边显示出来*/
+			position: absolute;
+			left: 0;
+			top: 52px;
+			transition: left .2s ease-in-out 0s;/*包含四个过度属性：执行变换属性、执行时间、速率、延迟*/
+			-webkit-transition: left .2s ease-in-out 0s;/*chrome和safari*/
+			-moz-transition: left .2s ease-in-out 0s;/*firefox*/
+			-o-transition: left .2s ease-in-out 0s;/*opera*/
+		}
+		li:nth-child(1):hover~ .move{ /*li元素的父元素的第一个子元素，当鼠标停留其上时，move元素的left属性改变*/
+			left: 0px; }
+		li:nth-child(2):hover~ .move{ left: 110px; }
+		li:nth-child(3):hover~ .move{ left: 220px; }
+        li:nth-child(4):hover~ .move{ left: 330px; }
+		li:nth-child(5):hover~ .move{ left: 440px; }
+        li:nth-child(6):hover~ .move{ left: 550px; }
+		li:nth-child(7):hover~ .move{ left: 660px; }
+        li:nth-child(8):hover~ .move{ left: 770px; }
+
+
+    hr{
+
+    border: 0;
+
+    height: 0; /* Firefox... */
+
+    box-shadow: 0 0 10px 1px black;
+
+    }
+        body{
+            background-image: url("../static/images/bg.png");
+        }
+
+    </style>
+</head>
+<body>
+
+
+    <div class="header_con">
+		<div class="header">
+			<div class="welcome fl">
+                {% if session.get('username') %}
+                 <p>欢迎您，{{session.get('username') }}。天天商城祝您购物愉快！</p>
+                {% endif %}
+            </div>
+			<div class="fr">
+				<div class="login_btn fl">
+					<a href="{{ url_for('user.login')}}">登录</a>
+					<span>|</span>
+					<a href="{{ url_for('user.register')}}">注册</a>
+                    <span>|</span>
+                    <a href="{{ url_for('admin.index') }}">首页</a>
+				</div>
+				<div class="user_link fl">
+					<span>|</span>
+					<a href="{{ url_for('user.main')}}">用户中心</a>
+					<span>|</span>
+					<a href="{{ url_for('user.showCart')}}">我的购物车</a>
+                    <span>|</span>
+                    <a href="{{ url_for('user.logout') }}">退出</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+    <div class="title">
+		<ul>
+			{% for product in productType %}
+                  <li>
+                      <h4><a href="{{ url_for('product.goods1',id=product['id']) }}">{{ product.type }}</a></h4>
+
+                  </li>
+            {% endfor %}
+			<li class="move"> </li>
+		</ul>
+	</div>
+
+    <div class="list_model">
+        <div class="list_title clearfix">
+            <a href="#" class="goods_more fr" id="fruit_more">查看更多 ></a>
+    </div>
+
+    <div id="container">
+        <div class="search bar6">
+            <form action="{{ url_for('search') }}" method="GET">
+                <input type="text" placeholder="请输入商品名" name="keyword">
+                <button type="submit"></button>
+            </form>
+        </div>
+    </div><br>
+    <div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
+			<div class="carousel slide" id="carousel-193702">
+				<ol class="carousel-indicators">
+					<li class="active" data-slide-to="0" data-target="#carousel-193702">
+					</li>
+					<li data-slide-to="1" data-target="#carousel-193702">
+					</li>
+					<li data-slide-to="2" data-target="#carousel-193702">
+					</li>
+				</ol>
+				<div class="carousel-inner" style="height: 330px;">
+					<div class="item active">
+						<img alt="" style="width: 1200px;" src="../static/images/test/1.jpg" />
+						<div class="carousel-caption">
+						</div>
+					</div>
+					<div class="item">
+						<img alt="" style="width: 1200px;" src="../static/images/test/2.jpg" />
+						<div class="carousel-caption">
+						</div>
+					</div>
+					<div class="item">
+						<img alt="" style="width: 1200px;" src="../static/images/test/3.jpg" />
+					</div>
+				</div> <a data-slide="prev" href="#carousel-193702" class="left carousel-control">‹</a> <a data-slide="next" href="#carousel-193702" class="right carousel-control">›</a>
+			</div>
+		</div>
+	</div>
+</div>
+<hr>
+    <div class="goods_con clearfix" style="margin-left: 20px">
+        <ul style="width: 1250px" class="goods_list fl">
+            {% if products  %}
+                {% for product in products %}
+                  <li>
+                      <h4><a href="{{ url_for('product.detail',id=product['id']) }}">{{ product.pname }}</a></h4>
+                      <a href="{{ url_for('product.detail',id=product['id']) }}"><img style="width: 210px;height: 210px;margin-left: 36px;margin-right: 36px;" src="{{ product.images }}" alt="未加载成功..."></a>
+                      <div class="prize">{{ product.price }}</div>
+                  </li>
+                {% endfor %}
+
+            {% endif %}
+            {% if not products  %}
+                    <h4>本类别还没有商品，去看看其他类别哦~~~</h4>
+
+            {% endif %}
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>

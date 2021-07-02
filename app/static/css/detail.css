@@ -1,0 +1,26 @@
+.add_cart{
+    display:inline-block;
+    width:178px;
+    height:38px;
+    border:1px solid #c40000;
+    font-size:14px;color:#c40000;
+    line-height:38px;
+    text-align:center;
+    background-color:#ffeded;}
+
+ .fl{
+        float: left;
+    }
+    .image{
+        width: 300px;
+        height:300px;
+    }
+    .product_image{
+        margin-left: 250px;
+    }
+    .product_info{
+        margin-left: 50px;
+    }
+    .prize{
+        text-align:center;font-size:20px;color:#c40000;margin-top:5px;
+    }
